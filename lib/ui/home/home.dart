@@ -3,7 +3,7 @@ import 'package:flutter_search_app/ui/home/widgets/home_result_view.dart';
 import 'package:flutter_search_app/ui/home/widgets/home_search_bar.dart';
 
 class Home extends StatelessWidget {
-  Home({super.key});
+  const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +12,8 @@ class Home extends StatelessWidget {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
-        appBar: AppBar(title: HomeSearchBar()),
-        body: HomeResultView(),
+        appBar: AppBar(title: const HomeSearchBar()),
+        body: const HomeResultView(),
       ),
     );
   }
