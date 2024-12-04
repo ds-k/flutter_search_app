@@ -25,14 +25,14 @@ class HomeSearchBar extends StatelessWidget {
           hintText: "지역을 입력해주세요.",
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: Colors.grey, // Border 색상
               width: 1.0, // Border 두께
             ),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: Colors.greenAccent, // Border 색상
               width: 1.0, // Border 두께
             ),
