@@ -11,9 +11,9 @@ class Home extends StatelessWidget {
       onTap: () {
         FocusScope.of(context).unfocus();
       },
-      child: Scaffold(
-        appBar: AppBar(title: const HomeSearchBar()),
-        body: const HomeResultView(),
+      child: const Scaffold(
+        appBar: HomeSearchBar(),
+        body: HomeResultView(),
       ),
     );
   }
