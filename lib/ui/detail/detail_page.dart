@@ -32,8 +32,8 @@ class DetailPage extends StatelessWidget {
         initialSettings: InAppWebViewSettings(
           mediaPlaybackRequiresUserGesture: true,
           javaScriptEnabled: true,
-          userAgent:
-              "Mozilla/5.0 (Linux; Android 10; Mobile; rv:89.0) Gecko/89.0 Firefox/89.0", // 모바일 페이지로 실행하도록 userAgent 설정
+          // userAgent:
+          //     "Mozilla/5.0 (Linux; Android 10; Mobile; rv:89.0) Gecko/89.0 Firefox/89.0", // 모바일 페이지로 실행하도록 userAgent 설정
         ),
         initialUrlRequest: URLRequest(
           url: WebUri(link),

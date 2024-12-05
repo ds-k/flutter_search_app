@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_search_app/core/geolocator_helper.dart';
+import 'package:flutter_search_app/core/result.dart';
 import 'package:flutter_search_app/data/model/location.dart';
 import 'package:flutter_search_app/data/repository/location_repository.dart';
 import 'package:flutter_search_app/data/repository/vworld_repository.dart';
@@ -7,7 +8,7 @@ import 'package:flutter_search_app/data/repository/vworld_repository.dart';
 class HomeState {
   HomeState({required this.locations, this.isLoading = false});
 
-  List<Location>? locations;
+  Result<List<Location>>? locations;
   bool isLoading;
 }
 

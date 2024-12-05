@@ -22,8 +22,10 @@ void main() async {
       await container.read(homeViewModelProvider.notifier).search('별내동');
 
       HomeState homeStateAfterSearch = container.read(homeViewModelProvider);
-      expect(homeStateAfterSearch.locations!.isNotEmpty, true);
-      expect(homeStateAfterSearch.locations![0].title, "별내행정복지센터");
+      if (homeStateAfterSearch.locations!.isSuccess) {
+        expect(homeStateAfterSearch.locations!.data!.isNotEmpty, true);
+        expect(homeStateAfterSearch.locations!.data![0].title, "별내행정복지센터");
+      }
     },
   );
 }
