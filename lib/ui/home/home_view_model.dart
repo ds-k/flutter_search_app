@@ -5,21 +5,24 @@ import 'package:flutter_search_app/data/repository/location_repository.dart';
 import 'package:flutter_search_app/data/repository/vworld_repository.dart';
 
 class HomeState {
-  HomeState({required this.locations});
+  HomeState({required this.locations, this.isLoading = false});
 
   List<Location>? locations;
+  bool isLoading;
 }
 
 class HomeViewModel extends Notifier<HomeState> {
   @override
   HomeState build() {
-    return HomeState(locations: null);
+    return HomeState(locations: null, isLoading: false);
   }
 
   Future<void> search(String query) async {
     LocationRepository locationRepository = LocationRepository();
 
-    state = HomeState(locations: await locationRepository.search(query));
+    state = HomeState(locations: null, isLoading: true);
+    state = HomeState(
+        locations: await locationRepository.search(query), isLoading: false);
   }
 
   Future<List> getAddressByLatLngAndSearch() async {
@@ -36,8 +39,13 @@ class HomeViewModel extends Notifier<HomeState> {
 
     // Naver API에 받아온 주소를 보내 검색한 후 상태 업데이트
     LocationRepository locationRepository = LocationRepository();
+
+    state = HomeState(locations: null, isLoading: true);
+
     if (address.isNotEmpty) {
-      state = HomeState(locations: await locationRepository.search(address[0]));
+      state = HomeState(
+          locations: await locationRepository.search(address[0]),
+          isLoading: false);
     }
     // 검색창 업데이트를 추가하기 위해 주소값을 리턴해주었습니다.
     // 빈 배열 리턴 여부로 현재 위치를 못찾는 상황 분기하기 위해 address[0]이 아닌 address를 리턴했습니다.
