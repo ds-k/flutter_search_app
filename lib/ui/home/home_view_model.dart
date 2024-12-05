@@ -48,6 +48,8 @@ class HomeViewModel extends Notifier<HomeState> {
           locations: await locationRepository.search(address[0]),
           isLoading: false);
     }
+
+    state = HomeState(locations: null, isLoading: false);
     // 검색창 업데이트를 추가하기 위해 주소값을 리턴해주었습니다.
     // 빈 배열 리턴 여부로 현재 위치를 못찾는 상황 분기하기 위해 address[0]이 아닌 address를 리턴했습니다.
     return address;
